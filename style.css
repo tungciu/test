@@ -2,6 +2,7 @@
 body{
   font-family: Arial, sans-serif;
 }
+
 nav {
   display: flex;
   align-items: center;
@@ -80,9 +81,10 @@ nav .search-bar {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  opacity: 50%;
+  width: 97%;
   height: 60px;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(175, 190, 237, 0.95);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   display: flex;
@@ -112,7 +114,15 @@ nav .search-bar input {
   background-color: #f8f9fa;
   border-radius: 5px;
   margin-right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ cho khối */
+  transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Hiệu ứng chuyển tiếp */
 }
+
+nav .search-bar input:focus {
+  background-color: #ffffff; /* Màu nền khi focus */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bóng đậm hơn khi focus */
+}
+
 
 /* Icon đóng */
 nav .search-bar .close-icon {
@@ -124,6 +134,86 @@ nav .search-bar .close-icon {
 
 nav .search-bar .close-icon:hover {
   color: #007BFF;
+}
+/*  */
+/* Định dạng các sản phẩm gợi ý */
+nav .sp-goiy {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+/* Hiển thị danh sách sản phẩm gợi ý khi có nội dung tìm kiếm */
+nav .search-bar input:focus + .sp-goiy {
+  display: block;
+}
+
+/* Thiết kế các sản phẩm gợi ý */
+nav .sp-goiy .sp {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.3s ease;
+}
+
+nav .sp-goiy .sp:hover {
+  background-color: #f7f7f7;
+}
+
+/* Hình ảnh sản phẩm */
+nav .sp-goiy .sp img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Thông tin sản phẩm */
+nav .sp-goiy .sp .info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+nav .sp-goiy .sp .info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+nav .sp-goiy .sp .info .price {
+  font-size: 14px;
+  color: #ff5722;
+  font-weight: 600;
+}
+
+/* Khi người dùng nhập, sẽ hiển thị danh sách gợi ý */
+nav .search-bar .sp-goiy {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  border-radius: 5px;
+  top: 60px;
+}
+
+/* Hiển thị danh sách gợi ý khi người dùng nhập */
+nav .search-bar input:focus + .sp-goiy {
+  display: block;
 }
 
 /*  */
